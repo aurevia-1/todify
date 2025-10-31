@@ -252,7 +252,7 @@ let deletetodo = (key) =>{
 window.logout = ()=>{
   signOut(auth)
   .then(()=>{
-    window.location.href = "index.html"
+    window.location.replace = ("../index.html")
   })
   .catch(()=>{
     console.log("Not logout")
