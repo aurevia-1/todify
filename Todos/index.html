@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Todos · Todoify</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-slate-50">
+  <header class="bg-white shadow-sm">
+    <div class="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center text-white font-bold">T</div>
+        <div>
+          <div id="userGreeting" class="text-sm text-slate-600">Welcome, Guest</div>
+          <div class="text-xs text-slate-400">Your personal todo board</div>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <button id="logoutBtn" onclick="logout()" class="text-sm px-3 py-1 border rounded-md hover:bg-slate-50">Logout</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-4 py-8">
+    <section class="mb-8 grid gap-6 md:grid-cols-3">
+      <div class="md:col-span-3 bg-white p-5 rounded-xl shadow">
+        <h3 class="font-semibold mb-3">Add / Edit todo</h3>
+        <form id="todoForm" class="space-y-3">
+          <input id="todoInput"  type="text" placeholder="Write something..."
+            class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-300" />
+          <div class="flex gap-2">
+            <button type="button" onclick="todobtn()"
+              class="flex-1 py-2 bg-indigo-600 text-white rounded-md">Save</button>
+          </div>
+          <div id="formMsg" class="text-xs text-red-500 hidden"></div>
+        </form>
+      </div>
+
+      <div class="md:col-span-3">
+        <div class="bg-white p-5 rounded-xl shadow">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="font-semibold">Your Todos</h3>
+            <div class="text-sm text-slate-500" id="todoCount">0 items</div>
+          </div>
+
+          <div id="todosList" class="space-y-3"></div>
+          <div id="emptyState" class="mt-6 text-center text-slate-400">No todos yet. Add your first task.
+            <table>
+              <tbody id="datatable"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  <script src="app.js" type="module"></script>
+</body>
+
+</html>
