@@ -207,18 +207,49 @@ let gettodo = () => {
 
       const buttons = document.createElement("div")
       buttons.className = "flex gap-2"
-      // edit button
-      const editbtn = document.createElement("button")
-      editbtn.textContent = "Edit"
-      editbtn.className = "text-blue-500"
-      editbtn.onclick = () => edittodo(Key, Todo.text)
-      buttons.appendChild(editbtn)
-      // edit delete
-      const deletebtn = document.createElement("button")
-      deletebtn.textContent = "Delete"
-      deletebtn.className = "text-red-500"
-      deletebtn.onclick = () => deletetodo(Key)
-      buttons.appendChild(deletebtn)
+      // EDIT button
+const editbtn = document.createElement("button");
+editbtn.innerHTML = `
+  <span class="flex items-center gap-2 px-3 py-1 rounded-lg bg-blue-50 
+               text-blue-600 hover:bg-blue-100 hover:text-blue-700 
+               transition-all duration-200 text-sm font-medium">
+    <svg xmlns="http://www.w3.org/2000/svg" 
+         viewBox="0 0 24 24" fill="currentColor" 
+         class="w-4 h-4">
+      <path d="M16.862 3.487a2.25 2.25 0 0 1 3.182 3.182L7.125 19.586a4.5 
+               4.5 0 0 1-1.591 1.027l-3.24 1.08 1.08-3.24a4.5 4.5 
+               0 0 1 1.027-1.591L16.862 3.487z" />
+    </svg>
+    Edit
+  </span>`;
+editbtn.onclick = () => edittodo(Key, Todo.text);
+buttons.appendChild(editbtn);
+
+// DELETE button
+const deletebtn = document.createElement("button");
+deletebtn.innerHTML = `
+  <span class="flex items-center gap-2 px-3 py-1 rounded-lg bg-red-50 
+               text-red-500 hover:bg-red-100 hover:text-red-700 
+               transition-all duration-200 text-sm font-medium">
+    <svg xmlns="http://www.w3.org/2000/svg" 
+         viewBox="0 0 24 24" fill="currentColor" 
+         class="w-4 h-4">
+      <path fill-rule="evenodd" 
+            d="M9.75 9a.75.75 0 0 1 .75.75v6a.75.75 0 0 1-1.5 
+               0v-6A.75.75 0 0 1 9.75 9zm4.5 0a.75.75 0 0 1 .75.75v6a.75.75 
+               0 0 1-1.5 0v-6a.75.75 0 0 1 .75-.75z" clip-rule="evenodd" />
+      <path fill-rule="evenodd" 
+            d="M4.5 5.25a.75.75 0 0 1 .75-.75H8.25l.41-.83A1.5 
+               1.5 0 0 1 10.06 3h3.88a1.5 1.5 0 0 1 1.35.67l.41.83h3a.75.75 
+               0 0 1 0 1.5H5.25a.75.75 0 0 1-.75-.75zM6.75 
+               7.5v11.25a1.5 1.5 0 0 0 1.5 1.5h7.5a1.5 
+               1.5 0 0 0 1.5-1.5V7.5h-10.5z" clip-rule="evenodd" />
+    </svg>
+    Delete
+  </span>`;
+deletebtn.onclick = () => deletetodo(Key);
+buttons.appendChild(deletebtn);
+
 
       div.append(buttons)
       todosList.appendChild(div)
